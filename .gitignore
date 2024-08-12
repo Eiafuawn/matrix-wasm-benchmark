@@ -1,3 +1,9 @@
+rust/target
+**/*.rs.bk
+Cargo.lock
+bin/
+pkg/
+wasm-pack.log
 # Logs
 logs
 *.log
@@ -118,3 +124,4 @@ dist
 .DS_Store
 
 lib
+
