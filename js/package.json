@@ -1,0 +1,41 @@
+{
+  "name": "matrix-js-benchmark",
+  "version": "0.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "eslint": "eslint src",
+    "eslint-fix": "npm run eslint -- --fix",
+    "prepack": "rollup -c",
+    "prettier": "prettier --check src",
+    "prettier-write": "prettier --write src",
+    "test": "npm run test-only && npm run eslint && npm run prettier",
+    "test-only": "vitest run --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cheminfo/matrix-js-benchmark.git"
+  },
+  "keywords": [],
+  "author": "Myschkin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cheminfo/matrix-js-benchmark/issues"
+  },
+  "homepage": "https://github.com/cheminfo/matrix-js-benchmark#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.24.8",
+    "@types/node": "^22.2.0",
+    "@vitest/coverage-v8": "^2.0.5",
+    "eslint": "^8.57.0",
+    "eslint-config-cheminfo": "^11.1.0",
+    "prettier": "^3.3.3",
+    "rollup": "^4.20.0",
+    "vitest": "^2.0.5"
+  }
+}
