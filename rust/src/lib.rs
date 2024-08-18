@@ -15,11 +15,6 @@ extern "C" {
 }
 
 #[wasm_bindgen]
-pub fn greet() {
-    alert("Hello, matrix-wasm-rust!");
-}
-
-#[wasm_bindgen]
 pub fn measure_performance() -> f64 {
     let window = web_sys::window().unwrap();
     let performance = window.performance().unwrap();
@@ -42,8 +37,8 @@ pub fn matrix_operations() -> f64 {
     fill_sequential_matrix(&mut matrix2);
     
     let mut total_sum = 0.0;
-    for _ in 0..100 {
-        let result = multiply_matrices(&matrix1, &matrix2);
+    for i in 0..100 {
+        let result = multiply_matrices(&matrix1, &matrix2, i);
         total_sum += sum_of_matrix_elements(&result);
     }
 

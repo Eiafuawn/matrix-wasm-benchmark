@@ -10,7 +10,7 @@ pub fn sum_of_matrix_elements(matrix: &Vec<Vec<f64>>) -> f64 {
     sum
 }
 
-pub fn multiply_matrices(matrix1: &Vec<Vec<f64>>, matrix2: &Vec<Vec<f64>>) -> Vec<Vec<f64>> {
+pub fn multiply_matrices(matrix1: &Vec<Vec<f64>>, matrix2: &Vec<Vec<f64>>, index: usize) -> Vec<Vec<f64>> {
     let mut result = get_empty_matrix();
     for i in 0..MATRIX_SIZE {
         for j in 0..MATRIX_SIZE {
