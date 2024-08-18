@@ -11,14 +11,14 @@ export function sumOfMatrixElements(matrix) {
 }
 
 /**
- * 
- * @param {*} matrix1 
- * @param {*} matrix2 
- * @param {*} index - We want to be sure that there is no internal optimization during testing 
- * @returns 
+ *
+ * @param {*} matrix1
+ * @param {*} matrix2
+ * @param {*} index - We want to be sure that there is no internal optimization during testing
+ * @returns
  */
 export function multiplyMatrices(matrix1, matrix2, index) {
-  const result = getEmptyMatrix()
+  const result = getEmptyMatrix();
   for (let i = 0; i < matrixSize; i++) {
     for (let j = 0; j < matrixSize; j++) {
       for (let k = 0; k < matrixSize; k++) {
@@ -26,7 +26,7 @@ export function multiplyMatrices(matrix1, matrix2, index) {
       }
     }
   }
-  return result
+  return result;
 }
 
 export function getEmptyMatrix() {
@@ -40,5 +40,5 @@ export function fillSequencialyMatrix(matrix) {
       matrix[i][j] = value++;
     }
   }
-  return matrix
+  return matrix;
 }
