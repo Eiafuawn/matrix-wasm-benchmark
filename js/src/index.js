@@ -30,6 +30,7 @@ export function matrixOperations() {
 }
 
 /**
+ * This function calls the wasm binary to test the performance the same way as the JS function
  * Doesn't work because the wasm binary doesn't seem to be initialized when used this way
  * The error is TypeError: Cannot read properties of undefined (reading 'matrix_operations')
  * I still need to look for a solution to this problem
