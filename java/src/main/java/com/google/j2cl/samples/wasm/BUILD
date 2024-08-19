@@ -25,7 +25,7 @@ package(
 # Since J2WASM currently does global compilation this only serves as a way
 # to collect sources and byte code required for j2wasm_application compilation.
 j2wasm_library(
-    name = "matrix-wasm-benchmark-j2cl",
+    name = "matrixoperations",
     srcs = glob(["*.java"]),
 )
 
@@ -42,13 +42,13 @@ j2wasm_library(
 j2wasm_application(
     name = "app",
     entry_points = ["com.google.j2cl.samples.wasm.MatrixOperations#doMatrixOperations"],
-    deps = [":Matrix"],
+    deps = [":matrixoperations"],
 )
 
 # Below is an example of the JS wiring of the wasm app
 
 closure_js_library(
-    name = "matrix-wasm-benchmark-js",
+    name = "hellojs",
     srcs = glob(["*.js"]),
     lenient = True,
     deps = [":app"],
@@ -65,5 +65,5 @@ j2cl_application(
     extra_dev_resources = [
         ":app_dev.wasm",  # Development output that is not optimized.
     ],
-    deps = [":"],
+    deps = [":hellojs"],
 )

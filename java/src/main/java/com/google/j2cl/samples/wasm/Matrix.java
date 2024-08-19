@@ -1,8 +1,8 @@
 package com.google.j2cl.samples.wasm;
 
 public class Matrix {
-    final int MATRIX_SIZE = 10;
-    public static sumOfMatrixElements(int[][] matrix) {
+    final static int MATRIX_SIZE = 10;
+    public static int sumOfMatrixElements(int[][] matrix) {
         int sum = 0;
         for (int i = 0; i < MATRIX_SIZE; i++) {
             for (int j = 0; j < MATRIX_SIZE; j++) {
@@ -12,23 +12,24 @@ public class Matrix {
         return sum;
     }
 
-    public static int[][] multiplyMatrices() {
-        int[][] result = getEmptyMatrix(MATRIX_SIZE, MATRIX_SIZE);
+    public static int[][] multiplyMatrices(int[][] matrix1, int[][] matrix2, int index) {
+        int[][] result = getEmptyMatrix();
         for (int i = 0; i < MATRIX_SIZE; i++) {
             for (int j = 0; j < MATRIX_SIZE; j++) {
                 for (int k = 0; k < MATRIX_SIZE; k++) {
-                    result[i][j] += matrix1[i][k] * matrix2[k][j];
+                    result[i][j] += matrix1[i][k] * matrix2[k][j] + index;
                 }
             }
         }
         return result;
     }
 
-    public static int[][] getEmptyMatrix(int rows, int cols) {
-        return new int[rows][cols];
+    public static int[][] getEmptyMatrix() {
+        int[][] matrix = new int[MATRIX_SIZE][MATRIX_SIZE];
+        return matrix;
     }
 
-    public static fillSequentialMatrix(int[][] matrix) {
+    public static void fillSequentialMatrix(int[][] matrix) {
         int value = 0;
         for (int i = 0; i < MATRIX_SIZE; i++) {
             for (int j = 0; j < MATRIX_SIZE; j++) {

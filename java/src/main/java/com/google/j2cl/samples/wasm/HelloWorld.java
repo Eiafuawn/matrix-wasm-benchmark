@@ -13,22 +13,12 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+package com.google.j2cl.samples.wasm;
 
-goog.module("entry");
 
-const j2wasm = goog.require("app.j2wasm");
-
-j2wasm.instantiateStreaming("app_dev.wasm").then(
-  (instance) => {
-    const start = performance.now();
-    document.body.innerText = instance.exports.doMatrixOperations();
-    const end = performance.now();
-    document.body.innerText += "\n" + "time: " + (end - start) + "ms";
-  },
-  (err) => {
-    document.body.style.color = "red";
-    document.body.innerText = `Failed to load wasm: ${err}`;
-    // rethrow so it also bubbles up to the console.
-    throw err;
+/** A simple hello world example. */
+public class HelloWorld {
+  public static String getHelloWorld() {
+    return "Hello from Java!";
   }
-);
+}
