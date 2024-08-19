@@ -42,7 +42,7 @@ j2wasm_library(
 j2wasm_application(
     name = "app",
     entry_points = ["com.google.j2cl.samples.wasm.MatrixOperations#doMatrixOperations"],
-    deps = [":Main"],
+    deps = [":Matrix"],
 )
 
 # Below is an example of the JS wiring of the wasm app
