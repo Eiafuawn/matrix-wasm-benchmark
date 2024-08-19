@@ -17,10 +17,16 @@ wasm-pack build --target web
 wasm-pack test --firefox --test web
 ```
 
-Java isn't working for now
+To test java
+
+```
+cd java
+bazel build src/main/java/com/google/j2cl/samples/wasm:jsapp
+bazel run src/main/java/com/google/j2cl/samples/wasm:jsapp_dev_server
+```
 
 ## Todo
 
-- repair j2cl template to build it
 - Make a script to benchmark in one place
+- Cleanup the 3 benchmarks
 - Benchmark rust by calling it from javascript wasm API
