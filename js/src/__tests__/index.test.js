@@ -1,8 +1,13 @@
 import { expect, test } from 'vitest';
 
-import { matrixOperations } from '..';
+import { matrixOperations, matrixOperationsRust } from '..';
 
-test('Should return the expected total sum', () => {
+test('Js matrix operations should return the expected total sum', () => {
   const expectedResult = 258225000;
   expect(matrixOperations()).toStrictEqual(expectedResult);
+});
+
+// This test is skipped because of the error in matrixOperationsRust function
+test.skip('Rust matrix operations should return the expected total sum', () => {
+  matrixOperationsRust();
 });

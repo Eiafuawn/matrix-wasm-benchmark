@@ -14,6 +14,7 @@ extern "C" {
     fn alert(s: &str);
 }
 
+//! This function measures the performance of the matrix operations
 #[wasm_bindgen]
 pub fn measure_performance() -> f64 {
     let window = web_sys::window().unwrap();
@@ -29,6 +30,7 @@ pub fn measure_performance() -> f64 {
     end - start
 }
 
+//! This function performs simple matrix operations
 #[wasm_bindgen]
 pub fn matrix_operations() -> f64 {
     let mut matrix1 = get_empty_matrix();

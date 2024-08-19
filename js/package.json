@@ -28,6 +28,9 @@
     "url": "https://github.com/cheminfo/matrix-js-benchmark/issues"
   },
   "homepage": "https://github.com/cheminfo/matrix-js-benchmark#readme",
+  "dependencies": {
+    "matrix-wasm-rust": "file:../rust/pkg"
+  },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.24.8",
     "@types/node": "^22.2.0",
