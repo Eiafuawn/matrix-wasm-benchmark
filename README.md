@@ -39,20 +39,20 @@ export JAVA_HOME="$(dirname $(dirname $(realpath $(which javac))))"
 
 ## Usage
 
-To test js
+### To test js
 ```
 cd js
 npm run test-only
 ```
 
-To test rust (currently the Rust test is not called from javascript)
+### To test rust (currently the Rust test is not called from javascript)
 ```
 cd rust
 wasm-pack build --target web
 wasm-pack test --firefox --test web
 ```
 
-To test java (Seems to only work in chrome)
+### To test java (Seems to only work in chrome)
 ```
 cd java
 bazel build src/main/java/com/google/j2cl/samples/wasm:jsapp
