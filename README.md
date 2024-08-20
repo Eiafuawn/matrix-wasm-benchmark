@@ -26,6 +26,7 @@ sdk install java 11.0.24-zulu
 sdk use java 11.0.24-zulu # If java 11 is not default
 ```
 *You can choose another version of java 11 but zulu is said to work well with ARM chips*
+
 Then install bazel:
 ```
 npm install -g @bazel/bazelisk
