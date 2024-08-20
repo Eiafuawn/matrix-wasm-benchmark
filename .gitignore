@@ -125,3 +125,9 @@ dist
 
 lib
 
+#bazel binaries
+bazel-bin
+bazel-java
+bazel-out
+bazel-testlogs
+bazel-wasm
