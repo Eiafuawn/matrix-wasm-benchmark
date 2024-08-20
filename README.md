@@ -15,25 +15,25 @@ Install the [Rust toolchain](https://www.rust-lang.org/tools/install) and [wasm-
 ### Java installation
 
 If you have do not have Java 11 already you can either:
-'''
+```
 brew install openjdk@11
-'''
+```
 Or use sdkman as a version manager:
-'''
+```
 brew install sdkman
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 sdk install java 11.0.24-zulu 
 sdk use java 11.0.24-zulu # If java 11 is not default
-'''
+```
 *You can choose another version of java 11 but zulu is said to work well with ARM chips*
 Then install bazel:
-'''
+```
 npm install -g @bazel/bazelisk
-'''
+```
 Finally for bazel to work correctly
-'''
+```
 export JAVA_HOME="$(dirname $(dirname $(realpath $(which javac))))"
-'''
+```
 *This takes the home path of the current Java version*
 
 ## Usage
