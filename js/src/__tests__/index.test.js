@@ -8,6 +8,6 @@ test('Js matrix operations should return the expected total sum', () => {
 });
 
 // This test is skipped because of the error in matrixOperationsRust function
-test.skip('Rust matrix operations should return the expected total sum', () => {
+test('Rust matrix operations should return the expected total sum', () => {
   matrixOperationsRust();
 });

@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+
 import * as wasm from 'matrix-wasm-rust';
 
 import {
@@ -30,14 +32,17 @@ export function matrixOperations() {
 }
 
 /**
- * This function calls the wasm binary to test the performance the same way as the JS function
- * Doesn't work because the wasm binary doesn't seem to be initialized when used this way
- * The error is TypeError: Cannot read properties of undefined (reading 'matrix_operations')
- * I still need to look for a solution to this problem
- * it's possible that only vitest is a problem, but I'm not sure yet
+ * This function calls the matrix_operations function from the Rust module.
  */
 export function matrixOperationsRust() {
+  // Initialize the wasm module
+  wasm.initSync(
+    readFileSync(`${__dirname}/../../rust/pkg/matrix_wasm_rust_bg.wasm`),
+  );
+  console.log('Wasm initialized');
+
   console.time('multiplyMatricesRust');
-  wasm.matrix_operations();
+  let result = wasm.matrix_operations();
+  console.log('Total sum:', result);
   console.timeEnd('multiplyMatricesRust');
 }
