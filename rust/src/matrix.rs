@@ -15,7 +15,7 @@ pub fn multiply_matrices(matrix1: &Vec<Vec<f64>>, matrix2: &Vec<Vec<f64>>, index
     for i in 0..MATRIX_SIZE {
         for j in 0..MATRIX_SIZE {
             for k in 0..MATRIX_SIZE {
-                result[i][j] += matrix1[i][k] * matrix2[k][j];
+                result[i][j] += matrix1[i][k] * matrix2[k][j] + index as f64;
             }
         }
     }
