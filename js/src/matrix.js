@@ -1,4 +1,4 @@
-const matrixSize = 10;
+const matrixSize = 200;
 
 export function sumOfMatrixElements(matrix) {
   let sum = 0;

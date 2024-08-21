@@ -1,4 +1,4 @@
-const MATRIX_SIZE: usize = 10;
+const MATRIX_SIZE: usize = 200;
 
 pub fn sum_of_matrix_elements(matrix: &Vec<Vec<f64>>) -> f64 {
     let mut sum = 0.0;

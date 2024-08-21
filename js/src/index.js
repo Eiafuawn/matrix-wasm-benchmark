@@ -43,6 +43,6 @@ export function matrixOperationsRust() {
 
   console.time('multiplyMatricesRust');
   let result = wasm.matrix_operations();
-  console.log('Total sum:', result);
   console.timeEnd('multiplyMatricesRust');
+  console.log('Total sum:', result);
 }
