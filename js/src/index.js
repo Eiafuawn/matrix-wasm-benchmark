@@ -35,6 +35,7 @@ export function matrixOperations() {
  * This function calls the matrix_operations function from the Rust module.
  */
 export function matrixOperationsRust() {
+  const matrixSize = Number.parseInt(process.env.MATRIX_SIZE) || 200;
   // Initialize the wasm module
   wasm.initSync(
     readFileSync(`${__dirname}/../../rust/pkg/matrix_wasm_rust_bg.wasm`),
@@ -42,7 +43,9 @@ export function matrixOperationsRust() {
   console.log('Wasm initialized');
 
   console.time('multiplyMatricesRust');
-  let result = wasm.matrix_operations();
+  let result = wasm.matrix_operations(matrixSize);
   console.timeEnd('multiplyMatricesRust');
   console.log('Total sum:', result);
+
+  return result;
 }

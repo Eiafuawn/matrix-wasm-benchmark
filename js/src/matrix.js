@@ -1,4 +1,6 @@
-const matrixSize = 200;
+require('dotenv').config({ path: '../.env' });
+
+const matrixSize = Number.parseInt(process.env.MATRIX_SIZE) || 200;
 
 export function sumOfMatrixElements(matrix) {
   let sum = 0;
