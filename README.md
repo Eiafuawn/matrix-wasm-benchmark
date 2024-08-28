@@ -81,6 +81,17 @@ bazel build src/main/java/com/google/j2cl/samples/wasm:jsapp
 bazel run src/main/java/com/google/j2cl/samples/wasm:jsapp_dev_server
 ```
 
+## Previous results
+
+| Size | JS time    | Rust Time | Equal results |
+| ---- | ---------- | --------- | ------------- |
+| 100  | 639.429ms  | 367.538ms | ✅            |
+| 200  | 5.075s     | 2.933s    | ✅            |
+| 300  | 17.362s    | 9.892s    | ✅            |
+| 400  | 42.209s    | 23.777s   | ✅            |
+| 500  | 1m28.011s  | 47.864s   | ✅            |
+| 1000 | 12m50.956s | 6m07.441s | ✅            |
+
 ## Todo
 
 - Make a script to benchmark in one place
