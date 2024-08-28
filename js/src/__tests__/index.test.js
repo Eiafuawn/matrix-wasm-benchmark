@@ -6,5 +6,4 @@ test('Js matrix operations should return the expected total sum', () => {
   let jsResult = matrixOperations();
   let rustResult = matrixOperationsRust();
   expect(jsResult).toStrictEqual(rustResult);
-  console.log('Factor = {}', jsResult / rustResult);
 });
