@@ -22,7 +22,7 @@ j2wasm.instantiateStreaming("app_dev.wasm").then(
   (instance) => {
     document.body.innerHTML = "Total sum: ";
     const start = performance.now();
-    document.body.innerText += instance.exports.doMatrixOperations();
+    document.body.innerText += instance.exports.doMatrixOperations(300);
     const end = performance.now();
     document.body.innerText += ` in ${end - start}ms`;
   },
