@@ -1,3 +1,4 @@
+This is the output of a test JS - Rust(i64)
 Testing with MATRIX_SIZE=100
     multiplyMatrices: 650.31ms
     Total sum: 2507837475000000
