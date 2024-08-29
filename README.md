@@ -85,6 +85,7 @@ bazel run src/main/java/com/google/j2cl/samples/wasm:jsapp_dev_server
 
 Rust and JS tested using the benchmark.sh script. Java is tested manually for now.
 The Equal results column is compared to JS. Java long and Rust i64 seem to have equal results.
+You can find the value of the total sum in the npm-test-output.txt file which is an output from one of the tests.
 
 | Size | JS time    | Rust Time | Equal results | Rust (i64) | Equal results | Java Time | Equal results |
 | ---- | ---------- | --------- | ------------- | ---------- | ------------- | --------- | ------------- |

@@ -1,0 +1,41 @@
+Testing with MATRIX_SIZE=100
+    multiplyMatrices: 650.31ms
+    Total sum: 2507837475000000
+    Wasm initialized
+    multiplyMatricesRust: 359.09ms
+    Total sum: 2507837475000000n
+
+Testing with MATRIX_SIZE=200
+    multiplyMatrices: 5.085s
+    Total sum: 320517359800000000
+    Wasm initialized
+    multiplyMatricesRust: 2.824s
+    Total sum: 320517359800000000n
+
+Testing with MATRIX_SIZE=300
+    multiplyMatrices: 17.886s
+    Total sum: 5473453566821209000
+    Wasm initialized
+    multiplyMatricesRust: 9.697s
+    Total sum: 5473453566825000000n
+
+Testing with MATRIX_SIZE=400
+    multiplyMatrices: 43.032s
+    Total sum: 40993621438437190000
+    Wasm initialized
+    multiplyMatricesRust: 22.277s
+    Total sum: 4100133290980896768n
+
+Testing with MATRIX_SIZE=500
+    multiplyMatrices: 1:26.077 (m:ss.mmm)
+    Total sum: 195441145934395200000
+    Wasm initialized
+    multiplyMatricesRust: 42.948s
+    Total sum: -7473038876430067776n
+
+Testing with MATRIX_SIZE=1000
+    multiplyMatrices: 13:27.954 (m:ss.mmm)
+    Total sum: 2.500828332997504e+22
+    Wasm initialized
+    multiplyMatricesRust: 6:32.828 (m:ss.mmm)
+    Total sum: -5501633975151991296n
