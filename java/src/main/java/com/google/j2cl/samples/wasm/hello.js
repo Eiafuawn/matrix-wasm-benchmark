@@ -20,10 +20,11 @@ const j2wasm = goog.require("app.j2wasm");
 
 j2wasm.instantiateStreaming("app_dev.wasm").then(
   (instance) => {
+    document.body.innerHTML = "Total sum: ";
     const start = performance.now();
-    document.body.innerText = instance.exports.doMatrixOperations();
+    document.body.innerText += instance.exports.doMatrixOperations();
     const end = performance.now();
-    document.body.innerText += "\n" + "time: " + (end - start) + "ms";
+    document.body.innerText += ` in ${end - start}ms`;
   },
   (err) => {
     document.body.style.color = "red";

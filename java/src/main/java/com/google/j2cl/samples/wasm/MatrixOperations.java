@@ -3,16 +3,15 @@ import static com.google.j2cl.samples.wasm.Matrix.*;
 
 public class MatrixOperations {
     public static String doMatrixOperations() {
-        int[][] matrix1 = getEmptyMatrix();
-        int[][] matrix2 = getEmptyMatrix();
+        Long[][] matrix1 = getEmptyMatrix();
+        Long[][] matrix2 = getEmptyMatrix();
         fillSequentialMatrix(matrix1);
         fillSequentialMatrix(matrix2);
-        int total_sum = 0;
+        Long total_sum = 0L;
         for (int i = 0; i < 100; i++) {
-            int[][] result = multiplyMatrices(matrix1, matrix2, i);
+            Long[][] result = multiplyMatrices(matrix1, matrix2, i);
             total_sum += sumOfMatrixElements(result);
         }
-        System.out.println("Total sum of all matrix elements: " + total_sum);
-        return "Total sum of all matrix elements: " + total_sum;
+        return total_sum.toString();
     }
 }
