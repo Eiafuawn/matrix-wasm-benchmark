@@ -6,10 +6,10 @@ package(
 )
 
 j2wasm_test(
-    name = "HelloWorldTest",
+    name = "MatrixOperationsTest",
     srcs = glob(["*.java"]),
     deps = [
         "@com_google_j2cl//:junit-j2wasm",
-        "@com_google_j2cl//samples/wasm/src/main/java/com/google/j2cl/samples/wasm:helloworld",
+        "@com_google_j2cl//wasm/src/main/java/com/google/j2cl/samples/wasm:matrixoperations",
     ],
 )

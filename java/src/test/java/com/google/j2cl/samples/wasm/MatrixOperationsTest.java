@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Google Inc.
+ * Copyright 2023 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -15,10 +15,16 @@
  */
 package com.google.j2cl.samples.wasm;
 
+import static org.junit.Assert.assertEquals;
 
-/** A simple hello world example. */
-public class HelloWorld {
-  public static String getHelloWorld() {
-    return "Hello from Java!";
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+
+@RunWith(JUnit4.class)
+public class MatrixOperationsTest {
+  @Test
+  public void testMatrixOperations() {
+    assertEquals("Total sum of all matrix elements: 258225000", MatrixOperations.doMatrixOperations());
   }
 }
