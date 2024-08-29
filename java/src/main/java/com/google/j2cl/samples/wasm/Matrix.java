@@ -2,8 +2,8 @@ package com.google.j2cl.samples.wasm;
 
 public class Matrix {
     static int matrixSize = 200;
-    public static long sumOfMatrixElements(long[][] matrix) {
-        long sum = 0L;
+    public static double sumOfMatrixElements(double[][] matrix) {
+        double sum = 0L;
         for (int i = 0; i < matrixSize; i++) {
             for (int j = 0; j < matrixSize; j++) {
                 sum += matrix[i][j];
@@ -12,8 +12,8 @@ public class Matrix {
         return sum;
     }
 
-    public static long[][] multiplyMatrices(long[][] matrix1, long[][] matrix2, int index) {
-        long[][] result = getEmptyMatrix();
+    public static double[][] multiplyMatrices(double[][] matrix1, double[][] matrix2, int index) {
+        double[][] result = getEmptyMatrix();
         for (int i = 0; i < matrixSize; i++) {
             for (int j = 0; j < matrixSize; j++) {
                 for (int k = 0; k < matrixSize; k++) {
@@ -24,13 +24,13 @@ public class Matrix {
         return result;
     }
 
-    public static long[][] getEmptyMatrix() {
-        long[][] matrix = new long[matrixSize][matrixSize];
+    public static double[][] getEmptyMatrix() {
+        double[][] matrix = new double[matrixSize][matrixSize];
         return matrix;
     }
 
-    public static long[][] fillSequentialMatrix(long[][] matrix) {
-        long value = 0L;
+    public static double[][] fillSequentialMatrix(double[][] matrix) {
+        double value = 0L;
         for (int i = 0; i < matrixSize; i++) {
             for (int j = 0; j < matrixSize; j++) {
                 matrix[i][j] = value++;
