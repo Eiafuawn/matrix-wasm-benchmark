@@ -83,14 +83,17 @@ bazel run src/main/java/com/google/j2cl/samples/wasm:jsapp_dev_server
 
 ## Previous results
 
-| Size | JS time    | Rust Time | Equal results |
-| ---- | ---------- | --------- | ------------- |
-| 100  | 639.429ms  | 367.538ms | ✅            |
-| 200  | 5.075s     | 2.933s    | ✅            |
-| 300  | 17.362s    | 9.892s    | ✅            |
-| 400  | 42.209s    | 23.777s   | ✅            |
-| 500  | 1m28.011s  | 47.864s   | ✅            |
-| 1000 | 12m50.956s | 6m07.441s | ✅            |
+Rust and JS tested using the benchmark.sh script. Java is tested manually for now.
+The Equal results column is compared to JS. Java long and Rust i64 seem to have equal results.
+
+| Size | JS time    | Rust Time | Equal results | Rust (i64) | Equal results | Java Time | Equal results |
+| ---- | ---------- | --------- | ------------- | ---------- | ------------- | --------- | ------------- |
+| 100  | 639.429ms  | 367.538ms | ✅            | 352.246ms  | ✅            | 331.600ms | ✅            |
+| 200  | 5.075s     | 2.933s    | ✅            | 2.824s     | ✅            | 2.673s    | ✅            |
+| 300  | 17.362s    | 9.892s    | ✅            | 9.697s     | ❌            | 9.127s    | ❌            |
+| 400  | 42.209s    | 23.777s   | ✅            | 22.277s    | ❌            | 18.283s   | ❌            |
+| 500  | 1m28.011s  | 47.864s   | ✅            | 42.948s    | ❌            | 38.124s   | ❌            |
+| 1000 | 12m50.956s | 6m07.441s | ✅            | 6m32.828s  | ❌            | 5m30.662s | ❌            |
 
 ## Todo
 
