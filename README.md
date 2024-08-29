@@ -87,14 +87,14 @@ Rust and JS tested using the benchmark.sh script. Java is tested manually for no
 The Equal results column is compared to JS. Java long and Rust i64 seem to have equal results.
 You can find the value of the total sum in the npm-test-output.txt file which is an output from one of the tests for i64.
 
-| Size | JS time    | Rust Time | Equal results | Rust (i64) | Equal results | Java Time | Equal results |
-| ---- | ---------- | --------- | ------------- | ---------- | ------------- | --------- | ------------- |
-| 100  | 639.429ms  | 367.538ms | ✅            | 352.246ms  | ✅            | 331.600ms | ✅            |
-| 200  | 5.075s     | 2.933s    | ✅            | 2.824s     | ✅            | 2.673s    | ✅            |
-| 300  | 17.362s    | 9.892s    | ✅            | 9.697s     | ❌            | 9.127s    | ❌            |
-| 400  | 42.209s    | 23.777s   | ✅            | 22.277s    | ❌            | 18.283s   | ❌            |
-| 500  | 1m28.011s  | 47.864s   | ✅            | 42.948s    | ❌            | 38.124s   | ❌            |
-| 1000 | 12m50.956s | 6m07.441s | ✅            | 6m32.828s  | ❌            | 5m30.662s | ❌            |
+| Size | JS time    | Rust Time | Java Time | Equal results | Rust (i64) | Equal results | Java (i64) | Equal results |
+| ---- | ---------- | --------- | --------- | ------------- | ---------- | ------------- | ---------- | ------------- |
+| 100  | 639.429ms  | 367.538ms | 379.899ms | ✅            | 352.246ms  | ✅            | 331.600ms  | ✅            |
+| 200  | 5.075s     | 2.933s    | 2.904s    | ✅            | 2.824s     | ✅            | 2.673s     | ✅            |
+| 300  | 17.362s    | 9.892s    | 9.826s    | ✅            | 9.697s     | ❌            | 9.127s     | ❌            |
+| 400  | 42.209s    | 23.777s   | 24.211s   | ✅            | 22.277s    | ❌            | 18.283s    | ❌            |
+| 500  | 1m28.011s  | 47.864s   | 48.787s   | ✅            | 42.948s    | ❌            | 38.124s    | ❌            |
+| 1000 | 12m50.956s | 6m07.441s | 6m19.304s | ✅            | 6m32.828s  | ❌            | 5m30.662s  | ❌            |
 
 ## Todo
 
