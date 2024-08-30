@@ -56,13 +56,15 @@ you can also specify one or a list of matrices' size to test by simply entering 
 ./benchmark 500 1000
 ```
 
-This code will test the sizes 500 and 1000
+_This code will test the sizes 500 and 1000_
 
-### To test js
+_You can also test separately:_
+
+### To test js and rust
 
 ```
 cd js
-npm run test-only
+node src/index.js
 ```
 
 ### To test rust (currently the Rust test is not called from javascript)
@@ -86,6 +88,18 @@ bazel run src/main/java/com/google/j2cl/samples/wasm:jsapp_dev_server
 Rust and JS tested using the benchmark.sh script. Java is tested manually for now.
 The Equal results column is compared to JS. Java long and Rust i64 seem to have equal results.
 You can find the value of the total sum in the npm-test-output.txt file which is an output from one of the tests for i64.
+
+| Size | JS time   | Rust Time | Java Time | Equal results |
+| ---- | --------- | --------- | --------- | ------------- |
+| 100  | 368.82ms  | 365.465ms | 379.899ms | ✅            |
+| 200  | 2.966s    | 2.907s    | 2.904s    | ✅            |
+| 300  | 9.938s    | 9.822s    | 9.826s    | ✅            |
+| 400  | 24.200s   | 23.345s   | 24.211s   | ✅            |
+| 500  | 51.247s   | 45.862s   | 48.787s   | ✅            |
+| 1000 | 7m15.247s | 6m10.613s | 6m19.304s | ✅            |
+
+> [!WARNING]  
+> The next results were made using vitest which had significant impact on Javascript performance
 
 | Size | JS time    | Rust Time | Java Time | Equal results | Rust (i64) | Equal results | Java (i64) | Equal results |
 | ---- | ---------- | --------- | --------- | ------------- | ---------- | ------------- | ---------- | ------------- |
