@@ -1,4 +1,6 @@
-require('dotenv').config({ path: '../.env' });
+import dotenv from 'dotenv';
+
+dotenv.config({ path: '../.env' });
 
 const matrixSize = Number.parseInt(process.env.MATRIX_SIZE) || 200;
 

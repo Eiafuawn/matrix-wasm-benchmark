@@ -1,51 +1,13 @@
-import { readFileSync } from 'node:fs';
+import { matrixOperations, matrixOperationsRust } from './matrixOperations.js';
 
-import * as wasm from 'matrix-wasm-rust';
+const matrixSize = Number.parseInt(process.env.MATRIX_SIZE) || 200;
 
-import {
-  getEmptyMatrix,
-  fillSequencialyMatrix,
-  multiplyMatrices,
-  sumOfMatrixElements,
-} from './matrix';
+console.log('Running matrix operations in JavaScript...');
+const jsResult = matrixOperations(); // This will execute the matrix operations in JavaScript
 
-/**
- * This function multiplies two matrices 100 times and sums the result of each multiplication.
- * @returns {number}
- */
-export function matrixOperations() {
-  console.time('multiplyMatrices');
-  const matrix1 = getEmptyMatrix();
-  const matrix2 = getEmptyMatrix();
-  fillSequencialyMatrix(matrix1);
-  fillSequencialyMatrix(matrix2);
+console.log('Running matrix operations in WebAssembly (Rust)...');
+const rustResult = matrixOperationsRust(matrixSize); // This will execute the matrix operations in WASM via Rust
 
-  let totalSum = 0;
-  for (let i = 0; i < 100; i++) {
-    const result = multiplyMatrices(matrix1, matrix2, i);
-    totalSum += sumOfMatrixElements(result);
-  }
-  console.timeEnd('multiplyMatrices');
-  console.log('Total sum:', totalSum);
-
-  return totalSum;
-}
-
-/**
- * This function calls the matrix_operations function from the Rust module.
- */
-export function matrixOperationsRust() {
-  const matrixSize = Number.parseInt(process.env.MATRIX_SIZE) || 200;
-  // Initialize the wasm module
-  wasm.initSync(
-    readFileSync(`${__dirname}/../../rust/pkg/matrix_wasm_rust_bg.wasm`),
-  );
-  console.log('Wasm initialized');
-
-  console.time('multiplyMatricesRust');
-  let result = wasm.matrix_operations(matrixSize);
-  console.timeEnd('multiplyMatricesRust');
-  console.log('Total sum:', result);
-
-  return result;
-}
+console.log('Comparing results...');
+console.log(`JavaScript result: ${jsResult}`);
+console.log(`WebAssembly (Rust) result: ${rustResult}`);
