@@ -14,12 +14,12 @@ import {
  * @returns {number}
  */
 export function matrixOperations() {
+  console.time('multiplyMatrices');
   const matrix1 = getEmptyMatrix();
   const matrix2 = getEmptyMatrix();
   fillSequencialyMatrix(matrix1);
   fillSequencialyMatrix(matrix2);
 
-  console.time('multiplyMatrices');
   let totalSum = 0;
   for (let i = 0; i < 100; i++) {
     const result = multiplyMatrices(matrix1, matrix2, i);
