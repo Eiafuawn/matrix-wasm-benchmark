@@ -83,20 +83,22 @@ bazel build src/main/java/com/google/j2cl/samples/wasm:jsapp
 bazel run src/main/java/com/google/j2cl/samples/wasm:jsapp_dev_server
 ```
 
-## Previous results
+## Latest results
 
 Rust and JS tested using the benchmark.sh script. Java is tested manually for now.
 The Equal results column is compared to JS. Java long and Rust i64 seem to have equal results.
 You can find the value of the total sum in the npm-test-output.txt file which is an output from one of the tests for i64.
 
-| Size | JS time   | Rust Time | Java Time | Equal results |
-| ---- | --------- | --------- | --------- | ------------- |
-| 100  | 368.82ms  | 365.465ms | 379.899ms | ✅            |
-| 200  | 2.966s    | 2.907s    | 2.904s    | ✅            |
-| 300  | 9.938s    | 9.822s    | 9.826s    | ✅            |
-| 400  | 24.200s   | 23.345s   | 24.211s   | ✅            |
-| 500  | 51.247s   | 45.862s   | 48.787s   | ✅            |
-| 1000 | 7m15.247s | 6m10.613s | 6m19.304s | ✅            |
+| Size | JS time   | Rust Time | Java Time | Equal results | Rust (i64) | Equal results | Rust (i64 w/ modulo) | Equal results | Java (i64) | Equal results |
+| ---- | --------- | --------- | --------- | ------------- | ---------- | ------------- | -------------------- | ------------- | ---------- | ------------- |
+| 100  | 368.82ms  | 365.452ms | 368.699ms | ✅            | 346.132ms  | ✅            | 645.272ms            | ✅            | 276.799ms  | ✅            |
+| 200  | 2.966s    | 2.929s    | 2.894s    | ✅            | 2.775s     | ✅            | 5.206s               | ✅            | 2.052s     | ✅            |
+| 300  | 9.938s    | 10.194s   | 9.822s    | ✅            | 9.746s     | ❌            | 17.868s              | ❌            | 7.096s     | ❌            |
+| 400  | 24.200s   | 23.345s   | 23.781s   | ✅            | 22.332s    | ❌            | 42.692s              | ❌            | 16.899s    | ❌            |
+| 500  | 51.247s   | 46.097s   | 46.865s   | ✅            | 42.721s    | ❌            | 1m24.284s            | ❌            | 36.510s    | ❌            |
+| 1000 | 7m15.247s | 6m10.613s | 6m19.586s | ✅            | 5m52.322s  | ❌            | 22m43.398s           | ❌            | 4m47.035s  | ❌            |
+
+## Previous results
 
 > [!WARNING]  
 > The next results were made using vitest which had significant impact on Javascript performance
