@@ -53,3 +53,21 @@ export function matrixOperationsRust(matrixSize = 200) {
 
   return result;
 }
+
+/**
+ * This function calls the matrix_operations_i64 function from the Rust module.
+ */
+export function matrixOperationsRustI64(matrixSize = 200) {
+  // Initialize the wasm module
+  wasm.initSync(
+    readFileSync(`${__dirname}/../../rust/pkg/matrix_wasm_rust_bg.wasm`),
+  );
+  console.log('Wasm initialized');
+
+  console.time('multiplyMatricesRust');
+  let result = wasm.matrix_operations_i64(matrixSize);
+  console.timeEnd('multiplyMatricesRust');
+  console.log('Total sum:', result);
+
+  return result;
+}
