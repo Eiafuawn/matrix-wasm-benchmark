@@ -20,11 +20,15 @@ const j2wasm = goog.require("app.j2wasm");
 
 j2wasm.instantiateStreaming("app_dev.wasm").then(
   (instance) => {
-    document.body.innerHTML = "Total sum: ";
-    const start = performance.now();
-    document.body.innerText += instance.exports.doMatrixOperations(300);
-    const end = performance.now();
-    document.body.innerText += ` in ${end - start}ms`;
+    const sizes = [100, 200, 300];
+    for (const size of sizes) {
+      document.body.innerHTML += "Total sum for" + size + " size: ";
+      const start = performance.now();
+      document.body.innerText += instance.exports.doMatrixOperations(size);
+      const end = performance.now();
+      document.body.innerText += ` in ${end - start}ms`;
+      document.body.innerHTML += "<br>";
+    }
   },
   (err) => {
     document.body.style.color = "red";
