@@ -1,13 +1,18 @@
-import { matrixOperations, matrixOperationsRust } from './matrixOperations.js';
+import {
+  matrixOperations,
+  matrixOperationsRust,
+  matrixOperationsRustI64,
+} from './matrixOperations.js';
 
 const matrixSize = Number.parseInt(process.env.MATRIX_SIZE) || 200;
 
+console.log(`Running benchmark for matrix size: ${matrixSize}`);
+
 console.log('Running matrix operations in JavaScript...');
-const jsResult = matrixOperations(); // This will execute the matrix operations in JavaScript
+matrixOperations();
 
 console.log('Running matrix operations in WebAssembly (Rust)...');
-const rustResult = matrixOperationsRust(matrixSize); // This will execute the matrix operations in WASM via Rust
+matrixOperationsRust(matrixSize);
 
-console.log('Comparing results...');
-console.log(`JavaScript result: ${jsResult}`);
-console.log(`WebAssembly (Rust) result: ${rustResult}`);
+console.log('Running matrix operations in WebAssembly (Rust i64)...');
+matrixOperationsRustI64(matrixSize);

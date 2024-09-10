@@ -31,7 +31,8 @@
   "homepage": "https://github.com/cheminfo/matrix-js-benchmark#readme",
   "dependencies": {
     "dotenv": "^16.4.5",
-    "matrix-wasm-rust": "file:../rust/pkg"
+    "matrix-wasm-rust": "file:../rust/pkg",
+    "tablemark": "^3.1.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.24.8",

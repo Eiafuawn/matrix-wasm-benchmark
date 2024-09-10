@@ -16,10 +16,10 @@ const __dirname = dirname(__filename);
 
 /**
  * This function multiplies two matrices 100 times and sums the result of each multiplication.
- * @returns {number}
+ * @returns {string}
  */
 export function matrixOperations() {
-  console.time('multiplyMatrices');
+  const start = performance.now();
   const matrix1 = getEmptyMatrix();
   const matrix2 = getEmptyMatrix();
   fillSequencialyMatrix(matrix1);
@@ -30,14 +30,18 @@ export function matrixOperations() {
     const result = multiplyMatrices(matrix1, matrix2, i);
     totalSum += sumOfMatrixElements(result);
   }
-  console.timeEnd('multiplyMatrices');
-  console.log('Total sum:', totalSum);
 
-  return totalSum;
+  const end = performance.now();
+  const resultStr = `Total sum: ${totalSum} in ${end - start}ms`;
+  console.log(resultStr);
+
+  return resultStr;
 }
 
 /**
  * This function calls the matrix_operations function from the Rust module.
+ * @param matrixSize
+ * @returns {string}
  */
 export function matrixOperationsRust(matrixSize = 200) {
   // Initialize the wasm module
@@ -46,16 +50,19 @@ export function matrixOperationsRust(matrixSize = 200) {
   );
   console.log('Wasm initialized');
 
-  console.time('multiplyMatricesRust');
+  const start = performance.now();
   let result = wasm.matrix_operations(matrixSize);
-  console.timeEnd('multiplyMatricesRust');
-  console.log('Total sum:', result);
+  const end = performance.now();
+  const resultStr = `Total sum: ${result} in ${end - start}ms`;
+  console.log(resultStr);
 
-  return result;
+  return resultStr;
 }
 
 /**
  * This function calls the matrix_operations_i64 function from the Rust module.
+ * @param matrixSize
+ * @returns {string}
  */
 export function matrixOperationsRustI64(matrixSize = 200) {
   // Initialize the wasm module
@@ -64,10 +71,11 @@ export function matrixOperationsRustI64(matrixSize = 200) {
   );
   console.log('Wasm initialized');
 
-  console.time('multiplyMatricesRust');
+  const start = performance.now();
   let result = wasm.matrix_operations_i64(matrixSize);
-  console.timeEnd('multiplyMatricesRust');
-  console.log('Total sum:', result);
+  const end = performance.now();
+  const resultStr = `Total sum: ${result} in ${end - start}ms`;
+  console.log(resultStr);
 
-  return result;
+  return resultStr;
 }
