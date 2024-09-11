@@ -16,10 +16,14 @@ const __dirname = dirname(__filename);
 
 /**
  * This function multiplies two matrices 100 times and sums the result of each multiplication.
- * @returns {string}
+ * @returns {Object}
  */
 export function matrixOperations() {
   const start = performance.now();
+  let results = {
+    Time: '',
+    Sum: '',
+  };
   const matrix1 = getEmptyMatrix();
   const matrix2 = getEmptyMatrix();
   fillSequencialyMatrix(matrix1);
@@ -32,18 +36,22 @@ export function matrixOperations() {
   }
 
   const end = performance.now();
-  const resultStr = `Total sum: ${totalSum} in ${end - start}ms`;
-  console.log(resultStr);
-
-  return resultStr;
+  console.log(`Total sum: ${totalSum} in ${end - start}ms`);
+  results.Time = (end - start).toString();
+  results.Sum = totalSum.toString();
+  return results;
 }
 
 /**
  * This function calls the matrix_operations function from the Rust module.
  * @param matrixSize
- * @returns {string}
+ * @returns {Object}
  */
 export function matrixOperationsRust(matrixSize = 200) {
+  let results = {
+    Time: '',
+    Sum: '',
+  };
   // Initialize the wasm module
   wasm.initSync(
     readFileSync(`${__dirname}/../../rust/pkg/matrix_wasm_rust_bg.wasm`),
@@ -56,15 +64,21 @@ export function matrixOperationsRust(matrixSize = 200) {
   const resultStr = `Total sum: ${result} in ${end - start}ms`;
   console.log(resultStr);
 
-  return resultStr;
+  results.Time = (end - start).toString();
+  results.Sum = result.toString();
+  return results;
 }
 
 /**
  * This function calls the matrix_operations_i64 function from the Rust module.
  * @param matrixSize
- * @returns {string}
+ * @returns {Object}
  */
 export function matrixOperationsRustI64(matrixSize = 200) {
+  let results = {
+    Time: '',
+    Sum: '',
+  };
   // Initialize the wasm module
   wasm.initSync(
     readFileSync(`${__dirname}/../../rust/pkg/matrix_wasm_rust_bg.wasm`),
@@ -77,5 +91,7 @@ export function matrixOperationsRustI64(matrixSize = 200) {
   const resultStr = `Total sum: ${result} in ${end - start}ms`;
   console.log(resultStr);
 
-  return resultStr;
+  results.Time = (end - start).toString();
+  results.Sum = result.toString();
+  return results;
 }

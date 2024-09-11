@@ -46,13 +46,22 @@ async function runBenchmark() {
     Date: new Date().toISOString(),
     'Matrix size': matrixSize,
     'Js time': '',
+    'Js result': '',
     'Rust time': '',
+    'Rust result': '',
     'Rust i64 time': '',
+    'Rust i64 result': '',
   };
 
-  newResult['Js time'] = matrixOperations();
-  newResult['Rust time'] = matrixOperationsRust(matrixSize);
-  newResult['Rust i64 time'] = matrixOperationsRustI64(matrixSize);
+  const JsResults = matrixOperations();
+  const RustResults = matrixOperationsRust(matrixSize);
+  const RustI64Results = matrixOperationsRustI64(matrixSize);
+  newResult['Js time'] = JsResults.Time;
+  newResult['Js result'] = JsResults.Sum;
+  newResult['Rust time'] = RustResults.Time;
+  newResult['Rust result'] = RustResults.Sum;
+  newResult['Rust i64 time'] = RustI64Results.Time;
+  newResult['Rust i64 result'] = RustI64Results.Sum;
 
   let existingResults = [];
   if (fs.existsSync(resultsFile)) {
