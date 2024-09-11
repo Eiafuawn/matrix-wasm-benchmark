@@ -53,10 +53,12 @@ You can test js and rust using the ./benchmark.sh script. By default the script 
 you can also specify one or a list of matrices' size to test by simply entering arguments
 
 ```
-./benchmark 500 1000
+./benchmark.sh 500 1000
 ```
 
 _This code will test the sizes 500 and 1000_
+
+You'll find the results of this command in [js/benchmark-results.md](js/benchmark-results.md)
 
 _You can also test separately:_
 
