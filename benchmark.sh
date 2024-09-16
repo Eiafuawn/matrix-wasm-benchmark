@@ -13,7 +13,7 @@ for size in "${sizes[@]}"; do
     echo "Testing with MATRIX_SIZE=$size"
 
     # Run JavaScript benchmark
-    (cd js && MATRIX_SIZE=$size node src/benchmark.js)
+    (cd js && MATRIX_SIZE=$size node src/node-benchmark.js)
 
     echo ""
 done
