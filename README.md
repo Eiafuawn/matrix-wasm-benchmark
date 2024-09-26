@@ -88,6 +88,10 @@ bazel run src/main/java/com/google/j2cl/samples/wasm:jsapp_dev_server
 ## Latest results
 
 Rust and JS tested using the benchmark.sh script. Java is tested manually for now.
+You'll find the results in in [js/benchmark-results.md](js/benchmark-results.md)
+*Most test were run using a Macbook air M2 (late 2022) results from the 26.09.24 were run on a desktop PC running linux*
+
+## Previous results
 The Equal results column is compared to JS. Java long and Rust i64 seem to have equal results.
 You can find the value of the total sum in the npm-test-output.txt file which is an output from one of the tests for i64.
 
@@ -99,8 +103,6 @@ You can find the value of the total sum in the npm-test-output.txt file which is
 | 400  | 24.200s   | 23.345s   | 23.781s   | ✅            | 22.332s    | ❌            | 42.692s              | ❌            | 16.899s    | ❌            |
 | 500  | 51.247s   | 46.097s   | 46.865s   | ✅            | 42.721s    | ❌            | 1m24.284s            | ❌            | 36.510s    | ❌            |
 | 1000 | 7m15.247s | 6m10.613s | 6m19.586s | ✅            | 5m52.322s  | ❌            | 22m43.398s           | ❌            | 4m47.035s  | ❌            |
-
-## Previous results
 
 > [!WARNING]  
 > The next results were made using vitest which had significant impact on Javascript performance
